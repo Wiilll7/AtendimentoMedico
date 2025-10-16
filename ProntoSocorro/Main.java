@@ -5,7 +5,10 @@ public class Main {
 	public static void main (String[]args) {
 		
 		Fila fila = new Fila();
+		Atendimento atendimento = new Atendimento();
+		Medico medico = new Medico();
 		
+		medico.iniciaMedico();
 		fila.iniciaFila();
 		
 		int a = 219;
@@ -39,6 +42,16 @@ public class Main {
 		fila.adicionarFila(p);
 		
 		System.out.println(fila.getFila());
+		System.out.println("=======================================");
+		
+		atendimento.realizaAtendimento(fila.getFirst());
+		
+		System.out.println(atendimento.pacientes.getAtendidos());
+		System.out.println("=======================================");
+		System.out.println(fila.getFila());
+		System.out.println("=======================================");
+		
+		
 	}
 
 }

@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class Fila {
 
-	private List<Paciente> fila = new ArrayList<Paciente>();
+	private List<Paciente> fila = new ArrayList<>();
 	
 	public boolean iniciaFila() {
 		String[] nomes = {"Gabriel", "Rafael", "Lucas", "Thiago", "João", "Mariana", "Ana", "Beatriz", "Laura", "Camila"};
@@ -68,6 +68,15 @@ public class Fila {
 	
 	public List<Paciente> getFila() {
 		return fila;
+	}
+	
+	public boolean removeFila() {
+		fila.remove(0);
+		return true;
+	}
+	
+	public Paciente getFirst() {
+		return fila.getFirst();
 	}
 	
 }

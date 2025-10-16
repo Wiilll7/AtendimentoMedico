@@ -5,6 +5,10 @@ public class Pessoa {
 	private String nome;
 	private String cpf;
 	
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(String nome, String cpf) {
 		setNome(nome);
 		setCpf(cpf);

@@ -1,9 +1,17 @@
 package ProntoSocorro;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Paciente extends Pessoa {
 	
 	private String classificacao;
 	private int num;
+	private List<Paciente> atendidos = new ArrayList<>();
+	
+	public Paciente() {
+		
+	}
 	
 	public Paciente(String nome, String cpf) {
 		super(nome, cpf);
@@ -36,6 +44,15 @@ public class Paciente extends Pessoa {
 		}
 		
 		return true;
+	}
+	
+	public boolean adicionaAtendidos(Paciente paciente) {
+		atendidos.add(paciente);
+		return true;
+	}
+	
+	public List<Paciente> getAtendidos() {
+		return atendidos;
 	}
 
 	public String toString() {

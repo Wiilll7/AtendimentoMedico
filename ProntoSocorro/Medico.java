@@ -8,6 +8,10 @@ public class Medico extends Pessoa {
 
 	private String crm;
 	
+	public Medico() {
+		
+	}
+	
 	public Medico(String nome, String cpf, String crm) {
 		super(nome, cpf);
 	}
@@ -15,12 +19,11 @@ public class Medico extends Pessoa {
 	public String getCrm() {
 		return crm;
 	}
-
 	public void setCrm(String crm) {
 		this.crm = crm;
 	}
 
-	private List<Medico> medico = new ArrayList<Medico>();
+	private List<Medico> medicos = new ArrayList<Medico>();
 	
 	public boolean iniciaMedico() {
 		String[] nomes = {"João", "Carlos", "Pedro", "Marcelo", "Ricardo", "Ana", "Juliana", "Mariana", "Fernanda", "Patrícia"};
@@ -48,23 +51,26 @@ public class Medico extends Pessoa {
 			crm.append("/SC");
 			
 			Medico m = new Medico("Dr. "+nome+" "+sobrenome, cpf.toString(), crm.toString());
-			medico.add(m);
+			medicos.add(m);
 		}
 		
 		return true;
 	}
 	
-	public List<Medico> getFila() {
-		return medico;
+	public List<Medico> getListMedico() {
+		return medicos;
 	}
 
-	@Override
+	public Medico getMedico(int index) {
+		return medicos.get(index);
+	}
+	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Medico [crm=");
 		builder.append(crm);
 		builder.append(", medicos=");
-		builder.append(medico);
+		builder.append(medicos);
 		builder.append(", toString()=");
 		builder.append(super.toString());
 		builder.append("]");
@@ -72,5 +78,4 @@ public class Medico extends Pessoa {
 		return builder.toString();
 	}
 
-	
 }

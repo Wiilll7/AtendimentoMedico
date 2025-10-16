@@ -1,7 +1,7 @@
 package ProntoSocorro;
 
 public class Pessoa {
-
+	
 	private String nome;
 	private String cpf;
 	
@@ -38,4 +38,5 @@ public class Pessoa {
 		builder.append("]");
 		return builder.toString();
 	}
+	
 }

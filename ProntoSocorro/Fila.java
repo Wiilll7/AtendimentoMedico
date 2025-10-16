@@ -18,20 +18,20 @@ public class Fila {
 		
 		for (int i = 0; i < 20; i++) {
 			int clas = random.nextInt(1, 12);
-			String cpf = "";
+			StringBuilder cpf = new StringBuilder();
 			String nome = nomes[random.nextInt(0, 10)];
 			String sobrenome = sobrenomes[random.nextInt(0, 10)];
 			
 			for (int j = 0; j < 11; j++) {
-				cpf += random.nextInt(0, 10);
+				cpf.append(random.nextInt(0, 10));
 				if (cpf.length() == 3 || cpf.length() == 7) {
-					cpf += ".";
+					cpf.append(".");
 				} else if (cpf.length() == 11) {
-					cpf += "-";
+					cpf.append("-");
 				}
 			}
 			
-			Paciente p = new Paciente(nome+" "+sobrenome, cpf);
+			Paciente p = new Paciente(nome+" "+sobrenome, cpf.toString());
 			p.classificar(clas);
 			adicionarFila(p);
 		}

@@ -66,19 +66,19 @@ public class Main {
 		atendimento.setFila(fila);
 		atendimento.realizaAtendimento(fila, medico.getMedico(0));
 		historico.setAtendimento(atendimento);
-		historico.adicionaAtendimentoRealizado(atendimento);
+		historico.addAtendimentoRealizado(atendimento);
 		
 		atendimento.realizaAtendimento(fila, medico.getMedico(1));
 		historico.setAtendimento(atendimento);
-		historico.adicionaAtendimentoRealizado(atendimento);
+		historico.addAtendimentoRealizado(atendimento);
 		
 		atendimento.realizaAtendimento(fila, medico.getMedico(0));
 		historico.setAtendimento(atendimento);
-		historico.adicionaAtendimentoRealizado(atendimento);
+		historico.addAtendimentoRealizado(atendimento);
 		
 		atendimento.realizaAtendimento(fila, medico.getMedico(1));
 		historico.setAtendimento(atendimento);
-		historico.adicionaAtendimentoRealizado(atendimento);
+		historico.addAtendimentoRealizado(atendimento);
 		
 		System.out.println(atendimento.getListaAtendidos());
 		System.out.println("=======================================");
@@ -95,6 +95,8 @@ public class Main {
 		} else {
 			System.out.println(historico.getAtendimentosMedico(2));
 		}
+		
 	}
+	
 }
 

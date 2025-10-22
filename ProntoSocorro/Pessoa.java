@@ -31,11 +31,10 @@ public class Pessoa {
 
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Pessoa [nome=");
+		builder.append("Nome: ");
 		builder.append(nome);
-		builder.append(", cpf=");
+		builder.append(", CPF: ");
 		builder.append(cpf);
-		builder.append("]");
 		return builder.toString();
 	}
 	

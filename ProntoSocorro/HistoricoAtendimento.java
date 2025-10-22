@@ -22,7 +22,7 @@ public class HistoricoAtendimento {
 		return atendimentosRealizados;
 	}
 
-	public boolean adicionaAtendimentoRealizado(Atendimento atendimento) {
+	public boolean addAtendimentoRealizado(Atendimento atendimento) {
 		atendimentosRealizados.add(atendimento);
 		addAtendimentoMedico(atendimento);
 		return true;

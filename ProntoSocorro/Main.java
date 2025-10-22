@@ -20,43 +20,37 @@ public class Main {
 		int a = 219;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		Paciente p = new Paciente("Willian", "210.320.435-21", format);
-		p.setClassificacao(a);
+		Paciente p = new Paciente("Willian", "210.320.435-21", format, a);
 		fila.adicionarFila(p);
 		
 		a = 8;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		p = new Paciente("Willian", "254.673.234-75", format);
-		p.setClassificacao(a);
+		p = new Paciente("Willian", "254.673.234-75", format, a);
 		fila.adicionarFila(p);
 		
 		a = 1;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		p = new Paciente("Willian", "897.234.825-38", format);
-		p.setClassificacao(a);
+		p = new Paciente("Willian", "897.234.825-38", format, a);
 		fila.adicionarFila(p);
 		
 		a = 8;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		p = new Paciente("Willian", "184.145.765-49", format);
-		p.setClassificacao(a);
+		p = new Paciente("Willian", "184.145.765-49", format, a);
 		fila.adicionarFila(p);
 		
 		a = 6;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		p = new Paciente("Willian", "465.872.198-43", format);
-		p.setClassificacao(a);
+		p = new Paciente("Willian", "465.872.198-43", format, a);
 		fila.adicionarFila(p);
 		
 		a = 1;
 		hora = LocalTime.now();
 		format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		p = new Paciente("Willian", "865.123.541-53", format);
-		p.setClassificacao(a);
+		p = new Paciente("Willian", "865.123.541-53", format, a);
 		fila.adicionarFila(p);
 		
 		System.out.println(fila.getFila());

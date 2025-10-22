@@ -34,8 +34,7 @@ public class Fila {
 			}
 			LocalTime hora = LocalTime.now();
 			String format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-			Paciente p = new Paciente(nome+" "+sobrenome, cpf.toString(), format);
-			p.setClassificacao(clas);
+			Paciente p = new Paciente(nome+" "+sobrenome, cpf.toString(), format, clas);
 			adicionarFila(p);
 		}
 		

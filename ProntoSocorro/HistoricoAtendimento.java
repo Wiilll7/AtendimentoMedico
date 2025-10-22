@@ -8,9 +8,9 @@ public class HistoricoAtendimento {
 	protected Atendimento atendimento;
 	private List<Atendimento> atendimentosRealizados = new ArrayList<>();
 	private List<List<String>> atendimentosMedico = new ArrayList<>();
-	List<String> historicoMedico1 = new ArrayList<>();
-	List<String> historicoMedico2 = new ArrayList<>();
-	List<String> historicoMedico3 = new ArrayList<>();
+	private List<String> historicoMedico1 = new ArrayList<>();
+	private List<String> historicoMedico2 = new ArrayList<>();
+	private List<String> historicoMedico3 = new ArrayList<>();
 
 	public Atendimento getAtendimento() {
 		return atendimento;

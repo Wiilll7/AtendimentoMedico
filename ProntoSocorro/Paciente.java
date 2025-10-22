@@ -14,6 +14,12 @@ public class Paciente extends Pessoa {
 		setHorarioChegada(horarioChegada);
 	}
 	
+	public Paciente(String nome, String cpf, String horarioChegada, int num) {
+		super(nome, cpf);
+		setHorarioChegada(horarioChegada);
+		setClassificacao(num);
+	}
+	
 	public String getHorarioChegada() {
 		return horarioChegada;
 	}

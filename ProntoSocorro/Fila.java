@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Fila {
 
@@ -30,9 +32,10 @@ public class Fila {
 					cpf.append("-");
 				}
 			}
-			
-			Paciente p = new Paciente(nome+" "+sobrenome, cpf.toString());
-			p.classificar(clas);
+			LocalTime hora = LocalTime.now();
+			String format = hora.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+			Paciente p = new Paciente(nome+" "+sobrenome, cpf.toString(), format);
+			p.setClassificacao(clas);
 			adicionarFila(p);
 		}
 		
@@ -55,7 +58,7 @@ public class Fila {
 			fila.add(pos, paciente);
 		} else if (paciente.getClassificacao().equals("Verde")) {
 			Set<String> cores = new HashSet<>(Arrays.asList("Vermelho", "Amarelo", "Verde"));
-			while (pos < fila.size() && cores.contains(fila.get(pos).getClassificacao())){
+			while (pos < fila.size() && cores.contains(fila.get(pos).getClassificacao())) {
 				pos++;
 			}
 			fila.add(pos, paciente);
@@ -70,9 +73,8 @@ public class Fila {
 		return fila;
 	}
 	
-	public boolean removeFila() {
-		fila.remove(0);
-		return true;
+	public Paciente removeFila() {
+		return fila.removeFirst();
 	}
 	
 	public Paciente getFirst() {

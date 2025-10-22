@@ -7,6 +7,7 @@ import java.util.Random;
 public class Medico extends Pessoa {
 
 	private String crm;
+	private List<Medico> medicos = new ArrayList<Medico>();
 	
 	public Medico() {
 		
@@ -14,23 +15,23 @@ public class Medico extends Pessoa {
 	
 	public Medico(String nome, String cpf, String crm) {
 		super(nome, cpf);
+		setCrm(crm);
 	}
 	
 	public String getCrm() {
 		return crm;
 	}
 	public void setCrm(String crm) {
+		if (crm.length() > 8)
 		this.crm = crm;
 	}
-
-	private List<Medico> medicos = new ArrayList<Medico>();
 	
 	public boolean iniciaMedico() {
 		String[] nomes = {"João", "Carlos", "Pedro", "Marcelo", "Ricardo", "Ana", "Juliana", "Mariana", "Fernanda", "Patrícia"};
 		String[] sobrenomes = {"Silva", "Souza", "Oliveira", "Santos", "Lima", "Carvalho", "Almeida", "Ferreira", "Costa", "Rodrigues", "Martins", "Pereira", "Moretti", "Müller", "González"};
 		Random random = new Random();
 		
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 3; i++) {
 			StringBuilder cpf = new StringBuilder();
 			StringBuilder crm = new StringBuilder();
 			String nome = nomes[random.nextInt(0, 10)];
@@ -65,16 +66,17 @@ public class Medico extends Pessoa {
 		return medicos.get(index);
 	}
 	
+	public void addMedico(Medico medico) {
+		medicos.add(medico);
+	}
+	
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Medico [crm=");
+		builder.append(super.getNome());
+		builder.append(", CRM: ");
 		builder.append(crm);
-		builder.append(", medicos=");
-		builder.append(medicos);
-		builder.append(", toString()=");
-		builder.append(super.toString());
-		builder.append("]");
-		builder.append("\n");
+		builder.append(", CPF: ");
+		builder.append(super.getCpf());
 		return builder.toString();
 	}
 

@@ -1,69 +1,50 @@
 package ProntoSocorro;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Paciente extends Pessoa {
 	
 	private String classificacao;
-	private int num;
-	private List<Paciente> atendidos = new ArrayList<>();
+	private String horarioChegada;
 	
 	public Paciente() {
 		
 	}
 	
-	public Paciente(String nome, String cpf) {
+	public Paciente(String nome, String cpf, String horarioChegada) {
 		super(nome, cpf);
+		setHorarioChegada(horarioChegada);
 	}
 	
-	public int getNum() {
-		return num;
+	public String getHorarioChegada() {
+		return horarioChegada;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setHorarioChegada(String horarioChegada) {
+		if (horarioChegada.length() > 6)
+		this.horarioChegada = horarioChegada;
 	}
-
 	public String getClassificacao() {
 		return classificacao;
 	}
-	public void setClassificacao(String classificacao) {
-		this.classificacao = classificacao;
-	}
-
-	public boolean classificar(int num) {
-		
+	public void setClassificacao(int num) {
 		if (num < 2) {
-			setClassificacao("Azul");
+			classificacao = "Azul";
 		} else if (num < 6){
-			setClassificacao("Verde");
+			classificacao = "Verde";
 		} else if (num < 10) {
-			setClassificacao("Amarelo");
+			classificacao = "Amarelo";
 		} else {
-			setClassificacao("Vermelho");
+			classificacao = "Vermelho";
 		}
-		
-		return true;
-	}
-	
-	public boolean adicionaAtendidos(Paciente paciente) {
-		atendidos.add(paciente);
-		return true;
-	}
-	
-	public List<Paciente> getAtendidos() {
-		return atendidos;
 	}
 
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Paciente ");
 		builder.append(super.getNome());
-		builder.append(", CPF:");
+		builder.append(", CPF: ");
 		builder.append(super.getCpf());
-		builder.append("; Classificação:");
+		builder.append(", Classificação: ");
 		builder.append(classificacao);
-		builder.append("\n");
+		builder.append(", Horario de chegada: ");
+		builder.append(horarioChegada+"\n");
 		return builder.toString();
 	}
 

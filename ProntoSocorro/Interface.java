@@ -23,6 +23,13 @@ public class Interface extends javax.swing.JFrame {
     private JComboBox<String> filtroMedico;
     private JComboBox<String> filtroPrioridade;
     
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    
     public Interface(Fila fila, Medico medico) {
         this.fila = fila;
         this.medico = medico;
@@ -31,7 +38,6 @@ public class Interface extends javax.swing.JFrame {
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
@@ -45,10 +51,10 @@ public class Interface extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 90)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 90));
         jLabel1.setText("PRONTO SOCORRO");
 
-        jButton1.setText("Vizualizar Fila");
+        jButton1.setText("Visualizar Fila");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -70,7 +76,7 @@ public class Interface extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Vizualizar Historico");
+        jButton4.setText("Visualizar Historico");
         jButton4.setToolTipText("");
         jButton4.setActionCommand("jButton2");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -116,9 +122,9 @@ public class Interface extends javax.swing.JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         JPanel panel = new JPanel(new BorderLayout());
 
         String[] colunas = {"Posição","Nome", "CPF", "Hora de Chegada", "Prioridade"};
@@ -136,9 +142,9 @@ public class Interface extends javax.swing.JFrame {
         panel.add(scroll, BorderLayout.CENTER);
 
         jScrollPane1.setViewportView(panel);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         JPanel panel = new JPanel(new BorderLayout());
 
         JPanel filtrosPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -157,7 +163,7 @@ public class Interface extends javax.swing.JFrame {
 
         panel.add(filtrosPanel, BorderLayout.NORTH);
 
-        String[] colunas = {"Nome Paciente","CPF Paciente","Prioridade","Horário Atendimento","Nome Médico","CRM Médico"};
+        String[] colunas = {"Nome Paciente","CPF Paciente","Prioridade","Horario de Chegada", "Horário Atendimento","Nome Médico","CRM Médico"};
         DefaultTableModel modelo = new DefaultTableModel(colunas,0);
 
         Runnable atualizarTabela = () -> {
@@ -172,8 +178,8 @@ public class Interface extends javax.swing.JFrame {
                 boolean okMedico = medicoSelecionado.equals("Todos") || m.getNome().equals(medicoSelecionado);
                 boolean okPrioridade = prioridadeSelecionada.equals("Todas") || p.getClassificacao().equals(prioridadeSelecionada);
 
-                if(okMedico && okPrioridade){
-                    Object[] linha = {p.getNome(), p.getCpf(), p.getClassificacao(), a.getHorarioAtendimento(), m.getNome(), m.getCrm()};
+                if (okMedico && okPrioridade) {
+                    Object[] linha = {p.getNome(), p.getCpf(), p.getClassificacao(), p.getHorarioChegada(), a.getHorarioAtendimento(), m.getNome(), m.getCrm()};
                     modelo.addRow(linha);
                 }
             }
@@ -189,9 +195,9 @@ public class Interface extends javax.swing.JFrame {
         atualizarTabela.run();
 
         jScrollPane1.setViewportView(panel);
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
@@ -246,9 +252,9 @@ public class Interface extends javax.swing.JFrame {
         panel.add(confirmar);
 
         jScrollPane1.setViewportView(panel);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         if(fila.getFila().isEmpty()){
             JOptionPane.showMessageDialog(this,"Não há pacientes na fila!");
             return;
@@ -272,7 +278,7 @@ public class Interface extends javax.swing.JFrame {
         if(tabelaHistorico != null){
             jButton4ActionPerformed(null);
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }
 
     public static void main(String args[]) {
         Fila fila = new Fila();
@@ -281,14 +287,5 @@ public class Interface extends javax.swing.JFrame {
         fila.iniciaFila();
         java.awt.EventQueue.invokeLater(() -> new Interface(fila, medico).setVisible(true));
     }
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration//GEN-END:variables
+    
 }

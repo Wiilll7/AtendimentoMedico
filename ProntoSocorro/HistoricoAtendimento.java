@@ -7,7 +7,6 @@ public class HistoricoAtendimento {
 
 	protected Atendimento atendimento;
 	private List<Atendimento> atendimentosRealizados = new ArrayList<>();
-	private List<List<String>> atendimentosMedico = new ArrayList<>();
 	private List<String> historicoMedico1 = new ArrayList<>();
 	private List<String> historicoMedico2 = new ArrayList<>();
 	private List<String> historicoMedico3 = new ArrayList<>();
@@ -39,31 +38,20 @@ public class HistoricoAtendimento {
             Medico m = atendimento.getMedico();
             if (historicoMedico1.isEmpty() || historicoMedico1.get(0).contains(m.getNome())) {
                 historicoMedico1.add(relatorio.toString());
-                if (atendimentosMedico.size() > 0) {
-                    atendimentosMedico.set(0, historicoMedico1);
-                } else {
-                    atendimentosMedico.add(historicoMedico1);
-                }
             } else if (historicoMedico2.isEmpty() || historicoMedico2.get(0).contains(m.getNome())) {
                 historicoMedico2.add(relatorio.toString());
-                if (atendimentosMedico.size() > 1) {
-                    atendimentosMedico.set(1, historicoMedico2);
-                } else {
-                    atendimentosMedico.add(historicoMedico2);
-                }
             } else {
                 historicoMedico3.add(relatorio.toString());
-                if (atendimentosMedico.size() > 2) {
-                    atendimentosMedico.set(2, historicoMedico3);
-                } else {
-                    atendimentosMedico.add(historicoMedico3);
-                }
             }
         }
 	
 	public List<String> getAtendimentosMedico(int index) {
-		if (atendimentosMedico.size() > index) {
-			return atendimentosMedico.get(index);
+		if (index == 1) {
+			return historicoMedico1;
+		} else if (index == 2) {
+			return historicoMedico2;
+		} else if (index == 3) {
+			return historicoMedico3;
 		} else {
 			return null;
 		}

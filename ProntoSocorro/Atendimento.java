@@ -9,7 +9,6 @@ public class Atendimento {
 
     protected Fila fila;
     protected Medico medico;
-    protected List<Medico> medicos;
     private List<Paciente> listaAtendidos = new ArrayList<>();
     private String horarioAtendimento;
 
@@ -24,12 +23,6 @@ public class Atendimento {
     }
     public void setMedico(Medico medico) {
         this.medico = medico;
-    }
-    public Medico getMedicos(int index) {
-        return medicos.get(index);
-    }
-    public void setMedicos(List<Medico> medicos) {
-        this.medicos = medicos;
     }
     public String getHorarioAtendimento() {
         return horarioAtendimento;

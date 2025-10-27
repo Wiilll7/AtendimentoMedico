@@ -77,8 +77,4 @@ public class Fila {
 		return fila.removeFirst();
 	}
 	
-	public Paciente getFirst() {
-		return fila.getFirst();
-	}
-	
 }

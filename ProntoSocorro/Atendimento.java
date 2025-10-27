@@ -52,7 +52,8 @@ public class Atendimento {
     public Paciente getPacienteAtendido() {
         if (listaAtendidos.isEmpty()) { 
         	return null;
+        } else {
+        	return listaAtendidos.get(listaAtendidos.size() - 1);
         }
-        return listaAtendidos.get(listaAtendidos.size() - 1);
     }
 }

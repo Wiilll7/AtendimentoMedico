@@ -44,13 +44,15 @@ public class Atendimento {
         listaAtendidos.add(paciente);
         return true;
     }
-
+    
     public List<Paciente> getListaAtendidos() {
         return listaAtendidos;
     }
 
     public Paciente getPacienteAtendido() {
-        if (listaAtendidos.isEmpty()) return null;
+        if (listaAtendidos.isEmpty()) { 
+        	return null;
+        }
         return listaAtendidos.get(listaAtendidos.size() - 1);
     }
 }

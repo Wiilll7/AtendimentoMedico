@@ -28,39 +28,38 @@ public class HistoricoAtendimento {
 		return true;
 	}
 	
-	public void addAtendimentoMedico(Atendimento atendimento) {
+        public void addAtendimentoMedico(Atendimento atendimento) {
 
-		StringBuilder relatorio = new StringBuilder();
-		relatorio.append("\nAtendimento\n");
-		relatorio.append("Medico: ");
-		relatorio.append(atendimento.getMedico()+"\n");
-		relatorio.append("Paciente: ");
-		relatorio.append(atendimento.getPacienteAtendido());
-		relatorio.append("Horario do atendimento: ");
-		relatorio.append(atendimento.getHorarioAtendimento());
-		if (this.atendimento.getMedicos(0) == atendimento.getMedico()) {
-			historicoMedico1.add(relatorio.toString());
-			if (atendimentosMedico.size() > 0) {
-			    atendimentosMedico.set(0, historicoMedico1);
-			} else {
-			    atendimentosMedico.add(historicoMedico1);
-			}
-		} else if (this.atendimento.getMedicos(1) == atendimento.getMedico()) {
-			historicoMedico2.add(relatorio.toString());
-			if (atendimentosMedico.size() > 1) {
-			    atendimentosMedico.set(1, historicoMedico2);
-			} else {
-			    atendimentosMedico.add(historicoMedico2);
-			}
-		} else if (this.atendimento.getMedicos(2) == atendimento.getMedico()) {
-			historicoMedico3.add(relatorio.toString());
-			if (atendimentosMedico.size() > 2) {
-			    atendimentosMedico.set(2, historicoMedico3);
-			} else {
-			    atendimentosMedico.add(historicoMedico3);
-			}
-		}
-	}
+            StringBuilder relatorio = new StringBuilder();
+            relatorio.append("\nAtendimento\n");
+            relatorio.append("Medico: ").append(atendimento.getMedico()).append("\n");
+            relatorio.append("Paciente: ").append(atendimento.getPacienteAtendido()).append("\n");
+            relatorio.append("Horario do atendimento: ").append(atendimento.getHorarioAtendimento()).append("\n");
+
+            Medico m = atendimento.getMedico();
+            if (historicoMedico1.isEmpty() || historicoMedico1.get(0).contains(m.getNome())) {
+                historicoMedico1.add(relatorio.toString());
+                if (atendimentosMedico.size() > 0) {
+                    atendimentosMedico.set(0, historicoMedico1);
+                } else {
+                    atendimentosMedico.add(historicoMedico1);
+                }
+            } else if (historicoMedico2.isEmpty() || historicoMedico2.get(0).contains(m.getNome())) {
+                historicoMedico2.add(relatorio.toString());
+                if (atendimentosMedico.size() > 1) {
+                    atendimentosMedico.set(1, historicoMedico2);
+                } else {
+                    atendimentosMedico.add(historicoMedico2);
+                }
+            } else {
+                historicoMedico3.add(relatorio.toString());
+                if (atendimentosMedico.size() > 2) {
+                    atendimentosMedico.set(2, historicoMedico3);
+                } else {
+                    atendimentosMedico.add(historicoMedico3);
+                }
+            }
+        }
 	
 	public List<String> getAtendimentosMedico(int index) {
 		if (atendimentosMedico.size() > index) {

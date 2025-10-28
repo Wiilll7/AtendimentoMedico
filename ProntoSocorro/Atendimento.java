@@ -7,17 +7,10 @@ import java.time.format.DateTimeFormatter;
 
 public class Atendimento {
 
-    protected Fila fila;
     protected Medico medico;
     private List<Paciente> listaAtendidos = new ArrayList<>();
     private String horarioAtendimento;
 
-    public Fila getFila() {
-        return fila;
-    }
-    public void setFila(Fila fila) {
-        this.fila = fila;
-    }
     public Medico getMedico() {
         return medico;
     }

@@ -36,7 +36,6 @@ public class Main extends javax.swing.JFrame {
     public Main(Fila fila, List<Medico> listaMedicos) {
         this.fila = fila;
         this.listaMedicos = listaMedicos;
-        historico.setAtendimento(new Atendimento());
         initComponents();
     }
 
@@ -215,7 +214,6 @@ public class Main extends javax.swing.JFrame {
         Paciente p = fila.removeFila();
 
         Atendimento a = new Atendimento();
-        a.setFila(fila);
         a.realizaAtendimento(p, m);
 
         historico.addAtendimentoRealizado(a);

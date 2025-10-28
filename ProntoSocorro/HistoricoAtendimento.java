@@ -5,15 +5,8 @@ import java.util.ArrayList;
 
 public class HistoricoAtendimento {
 
-	protected Atendimento atendimento;
 	private List<Atendimento> atendimentosRealizados = new ArrayList<>();
 
-	public Atendimento getAtendimento() {
-		return atendimento;
-	}
-	public void setAtendimento(Atendimento atendimento) {
-		this.atendimento = atendimento;
-	}
 	public List<Atendimento> getAtendimentosRealizados() {
 		return atendimentosRealizados;
 	}
@@ -30,9 +23,9 @@ public class HistoricoAtendimento {
 	        if (medico == atendimentosRealizados.get(i).getMedico()) {
 				StringBuilder relatorio = new StringBuilder();
 		        relatorio.append("\nAtendimento\n");
-		        relatorio.append("Medico: ").append(atendimento.getMedico()).append("\n");
-		        relatorio.append("Paciente: ").append(atendimento.getPacienteAtendido()).append("\n");
-		        relatorio.append("Horario do atendimento: ").append(atendimento.getHorarioAtendimento()).append("\n");
+		        relatorio.append("Medico: ").append(atendimentosRealizados.get(i).getMedico()).append("\n");
+		        relatorio.append("Paciente: ").append(atendimentosRealizados.get(i).getPacienteAtendido()).append("\n");
+		        relatorio.append("Horario do atendimento: ").append(atendimentosRealizados.get(i).getHorarioAtendimento()).append("\n");
 		        atendimentosMedico.add(relatorio.toString());
 	        }
 		}
